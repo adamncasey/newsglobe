@@ -61,17 +61,41 @@ def cnn_time_parser(cnn_time_stamp):
     # print second
     return json.dumps({'year': year, 'month': month, 'day':day, 'hour':hour, 'min': minute, 'sec': second});
 
+def cnn_subscriber(cnn_url, source):
 
+    d = feedparser.parse(cnn_url)
 
-d = feedparser.parse('http://rss.cnn.com/rss/edition.rss')
-print(d['feed'])
-print d.entries
-for entry in d.entries:
-    print entry
-    timestamp = cnn_time_parser(entry.published_parsed)
-    link = entry.links.pop().href
-    print link
+    cnn_top_json = [];
+    for entry in d.entries:
+        timestamp = cnn_time_parser(entry.published_parsed)
+        link = entry.links.pop().href
+        summary =  entry.summary_detail.value
+        title = entry.title
+        base_source = entry.summary_detail.base
+        temp_json = json.dumps({'timestamp': timestamp, 'link':link, 'summary': summary, 'title': title,
+                                'base_source': base_source, 'source': source })
+        cnn_top_json.append(temp_json)
 
+    return cnn_top_json
 
-
-
+print cnn_subscriber('http://rss.cnn.com/rss/edition.rss', 'cnn_top')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_world.rss', 'cnn_world')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_africa.rss', 'cnn_africa')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_americas.rss', 'cnn_americas')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_asia.rss', 'cnn_asia')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_europe.rss', 'cnn_europe')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_meast.rss', 'cnn_middle_east')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_us.rss', 'cnn_us')
+print cnn_subscriber('http://rss.cnn.com/rss/money_news_international.rss', 'cnn_money')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_technology.rss', 'cnn_technology')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_space.rss', 'cnn_space')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_entertainment.rss', 'cnn_entertainment')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_sport.rss', 'cnn_sport')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_football.rss', 'cnn_soccer')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_golf.rss', 'cnn_golf')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_motorsport.rss', 'cnn_motorsport')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_tennis.rss', 'cnn_tennis')
+print cnn_subscriber('http://travel.cnn.com/rss.xml', 'cnn_travel')
+print cnn_subscriber('http://rss.cnn.com/rss/cnn_latest.rss', 'cnn_latest')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_connecttheworld.rss', 'cnn_ctw')
+print cnn_subscriber('http://rss.cnn.com/rss/edition_worldsportblog.rss', 'cnn_world_sport')
