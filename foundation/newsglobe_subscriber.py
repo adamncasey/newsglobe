@@ -7,3 +7,4 @@ print(d['feed']);
 print d.entries;
 for entry in d.entries:
     print entry.published_parsed
+    print entry.published_parsed.find
