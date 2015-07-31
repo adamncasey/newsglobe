@@ -1,6 +1,7 @@
-#!/bin/python
+#!/usr/bin/env python2.7
 
 import os
+import json
 from flask import Flask
 import mysql.connector
 
@@ -14,7 +15,7 @@ cnx = mysql.connector.connect(user=DB_USR,
                               password=DB_PASS,
                               host=DB_HOST,
                               database=DB_DB)
-
+print cnx
 
 @app.route("/")
 def hello():
@@ -33,8 +34,8 @@ def country_news():
     response = dict
     for (country, count) in cursor:
         response[country] = count
-    return JSON.dumps(response)
+    return json.dumps(response)
+
 
 if __name__ == "__main__":
     app.run()
-    cnx.close()
