@@ -6,6 +6,7 @@
     <script src="./js/jquery-1.11.3.min.js"></script>
     <script src="./js/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="./js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -310,10 +311,11 @@
 
 
     var inverseCountryCodes = {};
-    for(i in isoCountries) {
+    for(i in isoCountries)
+    {
         inverseCountryCodes[isoCountries[i].toLowerCase()] = i;
     }
-    console.log(inverseCountryCodes);
+    //console.log(inverseCountryCodes);
 
     var output = {};
 
@@ -337,6 +339,16 @@
 
     refresh(input);
 
+/*
+    window.setInterval(function()
+    {
+        refresh(input);
+        //console.log("refresh");
+    }, 1000);
+*/
+
+   //getNewsData(refresh);
+
     $('#world-map').vectorMap({
         map: 'world_mill_en',
         series: {
@@ -350,7 +362,6 @@
             var map = $('#world-map').vectorMap('get', 'mapObject');
             var name = map.getRegionName(code);
             convert();
-            console.log(el);
             el.html(el.html()+' (News References - '+output[code]+')');
         }
     });
