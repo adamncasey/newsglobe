@@ -1,29 +1,39 @@
 <html>
 <head>
+    <script src="./js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
+
+        var check = [['united states', 100],
+            ['RU', 200],
+            ['GB',150]];
+
         google.load("visualization", "1", {packages:["geochart"]});
         google.setOnLoadCallback(drawRegionsMap);
-
         function drawRegionsMap()
         {
             var data = new google.visualization.DataTable();
             data.addColumn('string','Country');
             data.addColumn('number', 'Popularity');
-            data.addRows([['Germany', 100],
-                          ['RU', 200],
-                          ['GB',150]]);
+            data.addRows(check);
 
-            var options = {};
+            var options =
+            {
+                backgroundColor: 'rgb(22, 28, 34)',
+                colorAxis: {colors: ['#333333', 'red']},
+                datalessRegionColor: '#ffffff',
+                defaultColor: '#ffffff',
+            };
 
             var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
             chart.draw(data, options);
         }
+
     </script>
 </head>
 <body>
-<div id="regions_div" style="width: 900px; height: 500px;"></div>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
 </body>
 </html>
 
@@ -38,6 +48,24 @@
 
     document.getElementById("regions_div").style.height = height+"px";
     document.getElementById("regions_div").style.width = "100%";
+
+    function test2 ()
+    {
+        console.log("test");
+    }
+
+    $(document).keydown(function(e)
+    {
+        if (e.keyCode == 13)
+        {
+            console.log("test");
+            check = [['united states', 200],
+            ['RU', 200],
+            ['GB',150]];
+            drawRegionsMap();
+        }
+    });
+
 </script>
 
 </html>
