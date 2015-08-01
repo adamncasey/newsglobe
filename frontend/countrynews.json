@@ -1,5 +1,35 @@
 {
-	"united kingdom": 52,
-	"germany": 100,
-	"france": 10
-}
+	"samoa": 1, "japan": 18, "azerbaijan": 42, "uzbekistan": 1, "djibouti":
+ 21, "malta": 1, "guinea-bissau": 1, "hungary": 7, "cyprus": 21,
+ "barbados": 41, "bhutan": 41, "lithuania": 1, "micronesia": 1,
+ "andorra": 13, "tunisia": 7, "rwanda": 1, "argentina": 45, "norway": 4,
+ "ghana": 6, "australia": 84, "cuba": 56, "zambia": 1, "guatemala": 6,
+ "zimbabwe": 30, "belgium": 41, "haiti": 9, "kazakhstan": 1, "liberia":
+ 1, "kyrgyzstan": 1, "netherlands": 1, "portugal": 1, "denmark": 26,
+ "philippines": 5, "senegal": 1, "moldova": 2, "latvia": 1, "croatia":
+ 41, "switzerland": 9, "bulgaria": 41, "jamaica": 1, "albania": 61,
+ "angola": 61, "lebanon": 1, "malaysia": 28, "mozambique": 1, "greece":
+ 5, "nicaragua": 1, "canada": 47, "afghanistan": 67, "qatar": 5, "palau":
+ 1, "turkmenistan": 1, "sudan": 7, "guinea": 3, "panama": 1, "nepal": 2,
+ "luxembourg": 1, "swaziland": 1, "somalia": 6, "tuvalu": 1, "namibia":
+ 1, "brunei": 41, "korea": 61, "iran": 26, "united arab emirates": 6,
+ "mali": 6, "paraguay": 1, "china": 97, "armenia": 41, "kiribati": 1,
+ "iraq": 6, "ukraine": 14, "libya": 11, "gambia": 1, "finland": 1,
+ "macedonia": 1, "mauritius": 1, "estonia": 1, "syria": 11, "burma": 41,
+ "pakistan": 4, "romania": 1, "seychelles": 3, "egypt": 14, "united states": 20, "austria": 43, "congo": 83, "mongolia": 3, "colombia": 45,
+ "thailand": 1, "honduras": 1, "niger": 1, "fiji": 1, "comoros": 41,
+ "turkey": 18, "united kingdom": 6, "madagascar": 1, "belize": 41,
+ "bangladesh": 41, "mauritania": 2, "france": 42, "bahamas": 41,
+ "slovakia": 1, "ireland": 1, "laos": 1, "nigeria": 17, "bolivia": 41,
+ "malawi": 1, "ecuador": 13, "israel": 14, "peru": 1, "algeria": 62,
+ "serbia": 2, "tanzania": 1, "montenegro": 1, "tajikistan": 1, "togo": 1,
+ "jordan": 5, "chile": 50, "oman": 1, "spain": 3, "georgia": 2,
+ "morocco": 2, "sweden": 1, "gabon": 2, "guyana": 1, "grenada": 1,
+ "yemen": 9, "russia": 34, "bahrain": 41, "chad": 46, "mexico": 3,
+ "india": 31, "lesotho": 1, "belarus": 41, "uganda": 2, "burundi": 45,
+ "kenya": 15, "botswana": 41, "italy": 6, "cambodia": 42, "ethiopia": 9,
+ "vanuatu": 1, "cameroon": 45, "benin": 41, "brazil": 55, "singapore":
+ 15, "iceland": 1, "monaco": 9, "slovenia": 1, "germany": 4, "dominica":
+ 22, "eritrea": 1, "tonga": 1, "maldives": 1, "poland": 1, "indonesia":
+ 2, "liechtenstein": 1, "vietnam": 9, "kuwait": 1
+ }

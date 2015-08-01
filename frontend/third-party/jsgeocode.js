@@ -367,9 +367,9 @@
 
 var data = {};
 
-for(var i=-90.0; i<90.0; i+= 0.5)
+for(var i=-90.0; i<90.0; i+= 1)
 {
-    for(var j=-180.0; j<180.0; j+=0.5)
+    for(var j=-180.0; j<180.0; j+=1)
     {
         var result = get_country(i, j);
         if(result == null) {
