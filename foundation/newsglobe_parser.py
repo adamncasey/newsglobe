@@ -6,8 +6,8 @@ from newsglobe_uploader import DB_Handler
 class Parser:
 
     def __init__(self):
-        dataBase = open('countries.csv', 'rb')
-        reader = csv.reader(dataBase, delimiter=';')
+        dataBase = open('countries_new.csv', 'rb')
+        reader = csv.reader(dataBase)
         self.table = {}
         for country in reader:
             for city in country:
@@ -42,8 +42,10 @@ class Parser:
 
             handler = DB_Handler()
 
-            time = int((news['timestamp'])['year']) * 31556926 + int((news['timestamp'])['month']) * 2629744 + int((news['timestamp'])['day']) * 86400 + \
-                   int((news['timestamp'])['hour']) * 3600 + int((news['timestamp'])['min']) * 60 + int((news['timestamp'])['sec'])
+            timestamp =news['timestamp']
+            link = news['link']
+            source = news['source']
+            title = news['title']
             print country
-            print time
-            handler.insert_country(country, time)
+            print news['source']
+            handler.insert_country(to_add, timestamp, link, source, title)
