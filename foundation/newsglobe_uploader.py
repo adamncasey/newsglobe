@@ -33,7 +33,7 @@ class DB_Handler:
         conn = sqlite3.connect('DB')
         source = (source,)
         cursor = conn.execute("SELECT last_update FROM last_update_table WHERE source = ?", source).fetchone()
-        print cursor
+        return cursor
 
 #timing = datetime.datetime(1991,5,7,3,0,0);
 #insert_country('GE',1,str(timing),'abc')

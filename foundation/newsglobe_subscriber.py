@@ -69,13 +69,16 @@ def cnn_subscriber(cnn_url, source):
     print d.feed.published_parsed
 
     timestamp = cnn_time_parser(d.feed.published_parsed)
+    print "Timestamp: " + str(timestamp)
     current_update = int(timestamp['year']) * 31556926 + int(timestamp['month']) * 2629744 + int(timestamp['day']) * 86400 + \
                    int(timestamp['hour']) * 3600 + int(timestamp['min']) * 60 + int(timestamp['sec'])
     print source
     last_update = handler.get_last_update(source)
     # pos = str(last_update).find(',')
     # last_update = last_update[1:pos]
-    print last_update
+    if last_update is not None:
+        pos_back = str(last_update).find(",")
+        last_update = int(str(last_update)[1:pos_back])
 
     if last_update == current_update:
         return
@@ -115,7 +118,5 @@ cnn_subscriber('http://rss.cnn.com/rss/edition_football.rss', 'cnn_soccer')
 cnn_subscriber('http://rss.cnn.com/rss/edition_golf.rss', 'cnn_golf')
 cnn_subscriber('http://rss.cnn.com/rss/edition_motorsport.rss', 'cnn_motorsport')
 cnn_subscriber('http://rss.cnn.com/rss/edition_tennis.rss', 'cnn_tennis')
-cnn_subscriber('http://travel.cnn.com/rss.xml', 'cnn_travel')
 cnn_subscriber('http://rss.cnn.com/rss/cnn_latest.rss', 'cnn_latest')
-cnn_subscriber('http://rss.cnn.com/rss/edition_connecttheworld.rss', 'cnn_ctw')
-cnn_subscriber('http://rss.cnn.com/rss/edition_worldsportblog.rss', 'cnn_world_sport')
+
