@@ -1,3 +1,22 @@
 body {
     color: red;
 }
+
+#buttons {
+	color: white;
+}
+
+a {
+	color: #aaa;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+#buttons {
+	width: 270px;
+	position: absolute;
+	left: 20px;
+	top: 63px;
+	background-color: rgba(0,0,0,0.2);
+}
