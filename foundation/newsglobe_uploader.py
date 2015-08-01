@@ -2,26 +2,17 @@ __author__ = 'steffenschmidt'
 
 import json
 from db_auth import db_auth
-#import MySQLdb
+import MySQLdb
 import datetime
-import pymysql.cursors
-
-
-def connect_db():
-
-    return
+#import pymysql.cursors
 
 def insert_country(country_code, id, publish_date, link):
     auth = db_auth()
 
 
 # Connect to the database
-    connection = pymysql.connect(host='remi.ee.ethz.ch',
-                                user='steffsch',
-                                password='-AJaRPLr',
-                                db='steffsch',
-                                charset='utf8mb4',
-                                cursorclass=pymysql.cursors.DictCursor)
+    connection=MySQLdb.connect(passwd="-AJaRPLr", db='steffsch', host='remi.ee.ethz.ch')
+    cursor = connection.cursor()
 
     query = "INSERT INTO country_news_table " \
             "VALUES(%s,%i,%s,%s)"
