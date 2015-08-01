@@ -1,7 +1,7 @@
 var PAGE_NEWS = 'http://localhost/countrynews.json';
-var PAGE_LIVE_NEWS = 'http://localhost:5000/countrynews/2';
-var PAGE_COUNTRY_POINTS = 'http://localhost/countrylocations_light.json';
-var PAGE_COUNTRIES = 'http://localhost/countries.json';
+var PAGE_LIVE_NEWS = 'http://localhost:5000/countrynews/24';
+var PAGE_COUNTRY_POINTS = 'http://localhost:5000/ext/countrylocations_light.json';
+var PAGE_COUNTRIES = 'http://localhost:5000/ext/countries.json';
 
 function getGlobeData(timestart, callback)
 {
@@ -28,7 +28,7 @@ function generateGlobeData(newsData, callback)
 				console.log(country + " dropped")
 				continue;
 			}
-			produceCountryDataGlobePoints(pointsInCountry[country], newsData[country] / 400.0, data[0][1], offset);
+			produceCountryDataGlobePoints(pointsInCountry[country], newsData[country] / 200.0, data[0][1], offset);
 			
 			offset += pointsInCountry[country].length * 3;
 		}

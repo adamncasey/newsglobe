@@ -2,7 +2,7 @@
 
 import os
 import json
-from flask import Flask
+from flask import Flask, send_from_directory
 import mysql.connector
 
 DB_USR = os.getenv('DB_USR', 'newsworld')
@@ -16,6 +16,11 @@ cnx = mysql.connector.connect(user=DB_USR,
                               host=DB_HOST,
                               database=DB_DB)
 print cnx
+
+@app.route('/ext/<path:path>')
+def send_js(path):
+    return send_from_directory('c:/USERS/ADAM/documents/github/newsglobe/frontend/', path)
+
 
 @app.route("/")
 def hello():
