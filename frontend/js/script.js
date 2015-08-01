@@ -28,7 +28,7 @@ function generateGlobeData(newsData, callback)
 				console.log(country + " dropped")
 				continue;
 			}
-			produceCountryDataGlobePoints(pointsInCountry[country], newsData[country] / 200.0, data[0][1], offset);
+			produceCountryDataGlobePoints(pointsInCountry[country], newsData[country] / 50.0, data[0][1], offset);
 			
 			offset += pointsInCountry[country].length * 3;
 		}
