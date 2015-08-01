@@ -1,0 +1,37 @@
+html { 
+  background: url(../img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+#wrapper {
+	height: 500px;
+	width: 850px;
+	margin: 50px auto;
+	padding: 0;
+}
+#container {
+	float: right;
+	height: 500px; 
+	width: 450px; 
+}
+#info {
+	float: left;
+	width: 380px;
+}
+#info h2 {
+	display: inline;
+}
+#info .f32 .flag {
+	vertical-align: bottom !important;
+}
+
+#info h4 {
+	margin: 2em 0 0 0;
+}
