@@ -46,4 +46,4 @@ class Parser:
                    int((news['timestamp'])['hour']) * 3600 + int((news['timestamp'])['min']) * 60 + int((news['timestamp'])['sec'])
             print country
             print time
-            handler.insert_country(country, time)
+            handler.insert_country(to_add, time)
