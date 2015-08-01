@@ -101,6 +101,9 @@ def cnn_subscriber(cnn_url, source):
     return cnn_top_json
 
 
+def
+
+
 cnn_subscriber('http://rss.cnn.com/rss/edition.rss', 'cnn_top')
 cnn_subscriber('http://rss.cnn.com/rss/edition_world.rss', 'cnn_world')
 cnn_subscriber('http://rss.cnn.com/rss/edition_africa.rss', 'cnn_africa')
