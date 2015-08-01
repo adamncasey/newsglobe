@@ -21,8 +21,19 @@ class DB_Handler:
         conn.executemany("INSERT INTO news_country_table VALUES ( ?, ?)", entry)
         conn.commit()
 
+    def insert_update(self,source, time):
+        conn = sqlite3.connect('DB')
 
 
+        entry = [(source, time)]
+        conn.executemany("INSERT INTO last_update_table VALUES ( ?, ?)", entry)
+        conn.commit()
+
+    def get_last_update(self,source):
+        conn = sqlite3.connect('DB')
+        source = (source,)
+        cursor = conn.execute("SELECT last_update FROM last_update_table WHERE source = ?", source).fetchone()
+        print cursor
 
 #timing = datetime.datetime(1991,5,7,3,0,0);
 #insert_country('GE',1,str(timing),'abc')

@@ -3,6 +3,7 @@ __author__ = 'steffenschmidt'
 import feedparser
 import json
 from newsglobe_parser import Parser
+from newsglobe_uploader import DB_Handler
 
 def cnn_time_parser(cnn_time_stamp):
     string_stamp = str(cnn_time_stamp)
@@ -63,9 +64,23 @@ def cnn_time_parser(cnn_time_stamp):
     return {'year': year, 'month': month, 'day':day, 'hour':hour, 'min': minute, 'sec': second};
 
 def cnn_subscriber(cnn_url, source):
-
+    handler = DB_Handler()
     d = feedparser.parse(cnn_url)
+    print d.feed.published_parsed
 
+    timestamp = cnn_time_parser(d.feed.published_parsed)
+    current_update = int(timestamp['year']) * 31556926 + int(timestamp['month']) * 2629744 + int(timestamp['day']) * 86400 + \
+                   int(timestamp['hour']) * 3600 + int(timestamp['min']) * 60 + int(timestamp['sec'])
+    print source
+    last_update = handler.get_last_update(source)
+    # pos = str(last_update).find(',')
+    # last_update = last_update[1:pos]
+    print last_update
+
+    if last_update == current_update:
+        return
+
+    handler.insert_update(source, current_update)
     cnn_top_json = [];
     for entry in d.entries:
 
