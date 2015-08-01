@@ -4,12 +4,12 @@ import json
 from db_auth import db_auth
 import sqlite3
 #import datetime
-#import pymysql.cursors
+import MySQLdb
 
 
 class DB_Handler:
-    def insert_country(self,country_code, time):
-        conn = sqlite3.connect('DB')
+    def insert_country(self,country_code, time, link):
+        conn = MySQLdb.connect(host="kim.antoinegiraudmaillet.com", user="newsworld", passwd="Newsworld0", db="newsworld")
         # cursor = conn.execute("SELECT ID FROM news_country_table ORDER BY ID DESC").fetchone()
         # print cursor
         # if(cursor is None):
@@ -17,12 +17,12 @@ class DB_Handler:
         # else:
         #     id = int(str(cursor)[1:2]) + 1
 
-        entry = [(country_code, time)]
-        conn.executemany("INSERT INTO news_country_table VALUES ( ?, ?)", entry)
+        entry = [(country_code, time, link)]
+        conn.executemany("INSERT INTO country_news_table VALUES ( %s, %s, %s)", entry)
         conn.commit()
 
     def insert_update(self,source, time):
-        conn = sqlite3.connect('DB')
+        conn = MySQLdb.connect(host="kim.antoinegiraudmaillet.com", user="newsworld", passwd="Newsworld0", db="newsworld")
 
 
         entry = [(source, time)]
@@ -30,10 +30,11 @@ class DB_Handler:
         conn.commit()
 
     def get_last_update(self,source):
-        conn = sqlite3.connect('DB')
+        conn = MySQLdb.connect(host="kim.antoinegiraudmaillet.com", user="newsworld", passwd="Newsworld0", db="newsworld")
         source = (source,)
         cursor = conn.execute("SELECT last_update FROM last_update_table WHERE source = ?", source).fetchone()
-        return cursor
+        print cursor
+        # return cursor
 
 #timing = datetime.datetime(1991,5,7,3,0,0);
 #insert_country('GE',1,str(timing),'abc')
