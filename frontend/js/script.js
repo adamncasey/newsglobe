@@ -43,12 +43,9 @@ function produceCountryDataGlobePoints(countryPoints, newsHeat, array, offset)
 	var i=0;
 	for(point in countryPoints)
 	{
-		//console.log("point: " + countryPoints[point]);
 		array[offset + (i*3) + 0] = countryPoints[point][0];
 		array[offset + (i*3) + 1] = countryPoints[point][1];
 		array[offset + (i*3) + 2] = newsHeat;
-		
-		//console.log("0: " + countryPoints[point][0] + "  1:" + countryPoints[point][1] + "   2: " + newsHeat)
 		
 		i++;
 	}
