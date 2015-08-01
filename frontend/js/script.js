@@ -1,5 +1,5 @@
 var PAGE_NEWS = 'http://localhost/countrynews.json';
-var PAGE_LIVE_NEWS = 'http://10.255.136.114:5000/countrynews/2';
+var PAGE_LIVE_NEWS = 'http://localhost:5000/countrynews/2';
 var PAGE_COUNTRY_POINTS = 'http://localhost/countrylocations_light.json';
 var PAGE_COUNTRIES = 'http://localhost/countries.json';
 
