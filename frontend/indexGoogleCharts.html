@@ -43,6 +43,8 @@
         22, "eritrea": 1, "tonga": 1, "maldives": 1, "poland": 1, "indonesia":
         2, "liechtenstein": 1, "vietnam": 9, "kuwait": 1};
 
+        var chart;
+
         google.load("visualization", "1", {packages:["geochart"]});
         google.setOnLoadCallback(drawRegionsMap);
         function drawRegionsMap()
@@ -54,13 +56,13 @@
 
             var options =
             {
-                backgroundColor: 'rgb(22, 28, 34)',
+                backgroundColor: 'white',
                 colorAxis: {colors: ['#333333', 'red']},
                 datalessRegionColor: '#ffffff',
                 defaultColor: '#ffffff',
             };
 
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+            chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
             chart.draw(data, options);
         }
@@ -98,6 +100,8 @@
         input = array;
         drawRegionsMap();
     }
+
+
 
     /*$(document).keydown(function(e)
     {
