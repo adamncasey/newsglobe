@@ -20,5 +20,3 @@ Front end plan
 
 Draw map with coloured countries
 Aim to have a globe at some point?
-
-
