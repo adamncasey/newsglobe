@@ -9,9 +9,17 @@ class Parser:
         reader = csv.reader(dataBase, delimiter=';')
         self.table = {}
         for country in reader:
-            isCountryName = 1
             for city in country:
-                if isCountryName==0:
-                    if city!='':
-                        self.table[city]=country[0]
-                isCountryName=0
+                if city!='':
+                    self.table[city.lower()]=country[0].lower()
+
+    def process(self, news):
+        news['countries'] = []
+
+        title = news['title'].split(' ')
+        summary = news['summary'].split(' ')
+
+        for string in [title, summary]:
+            for word in string:
+                if  word.lower() in self.table.keys():
+                    news['countries'].append(self.table[word.lower()])
