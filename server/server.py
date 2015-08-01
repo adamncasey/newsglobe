@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
 import os
+import os.path
 import json
 from flask import Flask, send_from_directory
 import mysql.connector
@@ -15,11 +16,14 @@ cnx = mysql.connector.connect(user=DB_USR,
                               password=DB_PASS,
                               host=DB_HOST,
                               database=DB_DB)
+parent_dir = os.path.abspath(
+    os.path.join(os.path.join(os.path.realpath(__file__), os.pardir), os.pardir))
+print parent_dir
 print cnx
 
 @app.route('/ext/<path:path>')
 def send_js(path):
-    return send_from_directory('c:/USERS/ADAM/documents/github/newsglobe/frontend/', path)
+    return send_from_directory('{}/frontend/'.format(parent_dir), path)
 
 
 @app.route("/")
