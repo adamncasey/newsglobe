@@ -3,6 +3,7 @@ __author__ = 'steffenschmidt'
 import feedparser
 import json
 
+
 def cnn_time_parser(cnn_time_stamp):
     string_stamp = str(cnn_time_stamp)
     pos_year = string_stamp.find('=')
@@ -67,6 +68,7 @@ def cnn_subscriber(cnn_url, source):
 
     cnn_top_json = [];
     for entry in d.entries:
+        print entry
         timestamp = cnn_time_parser(entry.published_parsed)
         link = entry.links.pop().href
         summary =  entry.summary_detail.value
